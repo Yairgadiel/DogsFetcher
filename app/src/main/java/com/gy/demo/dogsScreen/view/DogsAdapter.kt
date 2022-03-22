@@ -37,6 +37,7 @@ class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DiffCallback) {
             itemView.findViewById<TextView>(R.id.dog_day).text = SimpleDateFormat(
                 "dd/MMMM/yyyy hh:mm").format(Date(dog.timestamp))
             itemView.findViewById<ImageView>(R.id.dog_img).load(dog.imgPath) {
+                placeholder(android.R.drawable.progress_indeterminate_horizontal)
                 transformations(RoundedCornersTransformation(4f))
             }
         }
