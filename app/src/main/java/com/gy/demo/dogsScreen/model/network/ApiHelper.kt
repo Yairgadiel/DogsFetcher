@@ -1,5 +1,5 @@
 package com.gy.demo.dogsScreen.model.network
 
 interface ApiHelper {
-    suspend fun fetchRandomDog() : DogResponse
+    suspend fun fetchRandomDog() : NetworkResult<DogResponse>
 }

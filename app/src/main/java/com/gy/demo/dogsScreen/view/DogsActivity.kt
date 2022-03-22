@@ -2,6 +2,7 @@ package com.gy.demo.dogsScreen.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -11,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gy.demo.R
+import com.gy.demo.dogsScreen.model.network.NetworkResult
 import com.gy.demo.dogsScreen.viewModel.DogsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +31,7 @@ class DogsActivity : AppCompatActivity() {
 
         loader = findViewById(R.id.loader)
 
+        // Set the dogs RV
         initRV()
 
         val fetchBtn = findViewById<Button>(R.id.fetch_btn)
@@ -37,10 +40,22 @@ class DogsActivity : AppCompatActivity() {
                 loader.visibility = View.VISIBLE
 
                 // Retrofit calls are "main-safe"
-                val res = dogsViewModel.fetchDog()
+                val dogRes = dogsViewModel.fetchDog()
+
+                when(dogRes) {
+                    is NetworkResult.Success -> {
+                        Toast.makeText(this@DogsActivity, "Dog Fetched!" , Toast.LENGTH_SHORT).show()
+                    }
+                    is NetworkResult.Error -> {
+                        Log.e("Main", dogRes.message ?: "Error")
+                        Toast.makeText(this@DogsActivity, "Error" , Toast.LENGTH_SHORT).show()
+                    }
+                    is NetworkResult.Loading -> {
+                        // Not currently in use
+                    }
+                }
 
                 loader.visibility = View.INVISIBLE
-                Toast.makeText(this@DogsActivity, "Dog Fetch status: ${res.status}" , Toast.LENGTH_SHORT).show()
             }
         }
     }
