@@ -6,6 +6,9 @@ import androidx.room.PrimaryKey
 import com.gy.demo.dogsScreen.model.network.DogResponse
 import java.util.*
 
+/**
+ * A dog entity as saved locally
+ */
 @Entity
 class Dog(
     @PrimaryKey(autoGenerate = true)
@@ -19,7 +22,5 @@ class Dog(
         0,
         dogRes.imgPath,
         dogRes.imgPath.split("breeds/")[1].split('/')[0],
-        Date().time) {
-        println("Created dog $this")
-    }
+        Date().time)
 }

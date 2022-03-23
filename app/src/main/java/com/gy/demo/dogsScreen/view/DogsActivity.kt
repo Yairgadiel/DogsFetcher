@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class DogsActivity : AppCompatActivity() {
     private val dogsViewModel: DogsViewModel by viewModels()
-
     private lateinit var loader: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +33,7 @@ class DogsActivity : AppCompatActivity() {
         // Set the dogs RV
         initRV()
 
+        // Handle fetch
         val fetchBtn = findViewById<Button>(R.id.fetch_btn)
         fetchBtn.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
@@ -60,6 +60,9 @@ class DogsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * This method initializes the dogs RV and handles updating it
+     */
     private fun initRV() {
         val dogsAdapter = DogsAdapter()
         val dogsRV = findViewById<RecyclerView>(R.id.dogs)
@@ -68,6 +71,7 @@ class DogsActivity : AppCompatActivity() {
             adapter = dogsAdapter
         }
 
+        // As long as the activity is alive, update the dogs adapter when the dogs are changed
         lifecycleScope.launch(Dispatchers.Main) {
             dogsViewModel.getDogs().collect {
                 dogsAdapter.submitList(it)

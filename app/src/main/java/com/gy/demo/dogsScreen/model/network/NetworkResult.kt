@@ -1,5 +1,9 @@
 package com.gy.demo.dogsScreen.model.network
 
+/**
+ * Generic result of a network request, containing optional [data] representing the response's body,
+ * and optional [message] representing result's extra info
+ */
 sealed class NetworkResult<T>(
     val data: T? = null,
     val message: String? = null

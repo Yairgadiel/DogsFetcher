@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -16,7 +15,7 @@ import com.gy.demo.dogsScreen.model.Dog
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DiffCallback) {
+class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DogDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -36,21 +35,12 @@ class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DiffCallback) {
 
             itemView.findViewById<TextView>(R.id.dog_day).text = SimpleDateFormat(
                 "dd/MMMM/yyyy hh:mm").format(Date(dog.timestamp))
+
+            // Loading the dog's image
             itemView.findViewById<ImageView>(R.id.dog_img).load(dog.imgPath) {
                 placeholder(android.R.drawable.progress_indeterminate_horizontal)
                 transformations(RoundedCornersTransformation(4f))
             }
         }
     }
-
-    companion object {
-        private val DiffCallback = object : DiffUtil.ItemCallback<Dog>() {
-            override fun areItemsTheSame(oldItem: Dog, newItem: Dog): Boolean {
-                return oldItem.uid == newItem.uid
-            }
-
-            override fun areContentsTheSame(oldItem: Dog, newItem: Dog): Boolean {
-                return oldItem.timestamp == newItem.timestamp && oldItem.imgPath == newItem.imgPath
-            }
-        }
-    }}
+}
