@@ -1,7 +1,7 @@
-package com.gy.demo.dogsScreen.view
+package com.gy.demo.dogs.view
 
 import androidx.recyclerview.widget.DiffUtil
-import com.gy.demo.dogsScreen.model.Dog
+import com.gy.demo.dogs.model.Dog
 
 object DogDiffCallback : DiffUtil.ItemCallback<Dog>() {
     override fun areItemsTheSame(oldItem: Dog, newItem: Dog): Boolean {

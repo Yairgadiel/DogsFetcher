@@ -1,8 +1,8 @@
 package com.gy.demo.di
 
-import com.gy.demo.dogsScreen.model.network.ApiHelper
-import com.gy.demo.dogsScreen.model.network.ApiHelperImpl
-import com.gy.demo.dogsScreen.model.network.ApiService
+import com.gy.demo.dogs.model.network.ApiHelper
+import com.gy.demo.dogs.model.network.ApiHelperImpl
+import com.gy.demo.dogs.model.network.ApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

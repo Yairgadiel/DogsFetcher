@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/drawable/progress_indeterminate_horizontal.xml" value="0.206" />
         <entry key="app/src/main/res/layout/activity_dogs.xml" value="0.43151969981238275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5140625" />
         <entry key="app/src/main/res/layout/dog_item.xml" value="0.5140625" />
+        <entry key="app/src/main/res/layout/dogs_fragment.xml" value="0.5140625" />
       </map>
     </option>
   </component>

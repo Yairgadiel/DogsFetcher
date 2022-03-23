@@ -1,4 +1,4 @@
-package com.gy.demo.dogsScreen.model.network
+package com.gy.demo.dogs.model.network
 
 /**
  * Generic result of a network request, containing optional [data] representing the response's body,

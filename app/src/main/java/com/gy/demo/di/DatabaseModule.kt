@@ -2,8 +2,8 @@ package com.gy.demo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.gy.demo.dogsScreen.model.local.AppDatabase
-import com.gy.demo.dogsScreen.model.local.DogsDao
+import com.gy.demo.dogs.model.local.AppDatabase
+import com.gy.demo.dogs.model.local.DogsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,9 +1,9 @@
-package com.gy.demo.dogsScreen.model.local
+package com.gy.demo.dogs.model.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.gy.demo.dogsScreen.model.Dog
+import com.gy.demo.dogs.model.Dog
 import kotlinx.coroutines.flow.Flow
 
 @Dao

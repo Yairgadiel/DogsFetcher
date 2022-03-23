@@ -1,10 +1,10 @@
-package com.gy.demo.dogsScreen.viewModel
+package com.gy.demo.dogs.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.gy.demo.dogsScreen.model.Dog
-import com.gy.demo.dogsScreen.model.IDogsRepository
-import com.gy.demo.dogsScreen.model.network.DogResponse
-import com.gy.demo.dogsScreen.model.network.NetworkResult
+import com.gy.demo.dogs.model.Dog
+import com.gy.demo.dogs.model.IDogsRepository
+import com.gy.demo.dogs.model.network.DogResponse
+import com.gy.demo.dogs.model.network.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

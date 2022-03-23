@@ -34,6 +34,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
     def coroutinesVersion = '1.4.3'
     def retrofitVersion = "2.9.0"
     def lifeCycleVersion = '2.4.1'

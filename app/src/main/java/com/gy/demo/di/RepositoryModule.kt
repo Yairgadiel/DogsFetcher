@@ -1,7 +1,7 @@
 package com.gy.demo.di
 
-import com.gy.demo.dogsScreen.model.DogsRepositoryImpl
-import com.gy.demo.dogsScreen.model.IDogsRepository
+import com.gy.demo.dogs.model.DogsRepositoryImpl
+import com.gy.demo.dogs.model.IDogsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

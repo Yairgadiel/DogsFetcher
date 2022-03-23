@@ -1,7 +1,7 @@
-package com.gy.demo.dogsScreen.model
+package com.gy.demo.dogs.model
 
-import com.gy.demo.dogsScreen.model.network.DogResponse
-import com.gy.demo.dogsScreen.model.network.NetworkResult
+import com.gy.demo.dogs.model.network.DogResponse
+import com.gy.demo.dogs.model.network.NetworkResult
 import kotlinx.coroutines.flow.Flow
 
 /**

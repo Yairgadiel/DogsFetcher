@@ -1,9 +1,9 @@
-package com.gy.demo.dogsScreen.model
+package com.gy.demo.dogs.model
 
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import com.gy.demo.dogsScreen.model.network.DogResponse
+import com.gy.demo.dogs.model.network.DogResponse
 import java.util.*
 
 /**

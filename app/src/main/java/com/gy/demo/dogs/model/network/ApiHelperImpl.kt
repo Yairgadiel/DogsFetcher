@@ -1,4 +1,4 @@
-package com.gy.demo.dogsScreen.model.network
+package com.gy.demo.dogs.model.network
 
 import java.lang.Exception
 import javax.inject.Inject

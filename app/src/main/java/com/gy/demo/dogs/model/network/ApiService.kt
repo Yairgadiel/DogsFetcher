@@ -1,4 +1,4 @@
-package com.gy.demo.dogsScreen.model.network
+package com.gy.demo.dogs.model.network
 
 import retrofit2.Response
 import retrofit2.http.GET

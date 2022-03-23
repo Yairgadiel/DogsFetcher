@@ -1,4 +1,4 @@
-package com.gy.demo.dogsScreen.view
+package com.gy.demo.dogs.view
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.gy.demo.R
-import com.gy.demo.dogsScreen.model.Dog
+import com.gy.demo.dogs.model.Dog
 import java.text.SimpleDateFormat
 import java.util.*
 
