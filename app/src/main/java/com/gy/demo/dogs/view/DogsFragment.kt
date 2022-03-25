@@ -9,9 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gy.demo.R
+import com.gy.demo.dogs.model.Dog
 import com.gy.demo.dogs.model.network.NetworkResult
 import com.gy.demo.dogs.viewModel.DogsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,14 +23,16 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DogsFragment : Fragment(R.layout.dogs_fragment) {
+class DogsFragment : Fragment(R.layout.dogs_fragment), IOnDogClickedListener {
     private val dogsViewModel: DogsViewModel by activityViewModels()
     private lateinit var loader: ProgressBar
     private lateinit var dogsRV: RecyclerView
+    private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = findNavController()
         loader = view.findViewById(R.id.loader)
         dogsRV = view.findViewById(R.id.dogs)
 
@@ -65,7 +70,8 @@ class DogsFragment : Fragment(R.layout.dogs_fragment) {
      * This method initializes the dogs RV and handles updating it
      */
     private fun initRV() {
-        val dogsAdapter = DogsAdapter()
+        val dogsAdapter = DogsAdapter(this)
+
         dogsRV.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = dogsAdapter
@@ -77,5 +83,10 @@ class DogsFragment : Fragment(R.layout.dogs_fragment) {
                 dogsAdapter.submitList(it)
             }
         }
+    }
+
+    override fun onDogClicked(dog: Dog) {
+        dogsViewModel.setFeaturedDog(dog.uid)
+        navController.navigate(R.id.action_DogsFragment_to_DogProfileFragment)
     }
 }

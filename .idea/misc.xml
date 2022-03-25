@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/activity_dogs.xml" value="0.43151969981238275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5140625" />
         <entry key="app/src/main/res/layout/dog_item.xml" value="0.5140625" />
+        <entry key="app/src/main/res/layout/dog_profile_fragment.xml" value="0.5140625" />
         <entry key="app/src/main/res/layout/dogs_fragment.xml" value="0.5140625" />
       </map>
     </option>

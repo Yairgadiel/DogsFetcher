@@ -9,6 +9,19 @@
         android:id="@+id/DogsFragment"
         android:name="com.gy.demo.dogs.view.DogsFragment"
         android:label="Dogs"
-        tools:layout="@layout/dogs_fragment" />
+        tools:layout="@layout/dogs_fragment" >
+        <action
+            android:id="@+id/action_DogsFragment_to_DogProfileFragment"
+            app:destination="@id/DogProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/DogsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DogProfileFragment"
+        android:name="com.gy.demo.dogs.view.DogProfileFragment"
+        android:label="Dog Profile"
+        tools:layout="@layout/dog_profile_fragment" />
 
 </navigation>

@@ -15,7 +15,7 @@ import com.gy.demo.dogs.model.Dog
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DogDiffCallback) {
+class DogsAdapter(val dogClickedListener: IOnDogClickedListener) : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DogDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,12 +25,12 @@ class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DogDiffCallback)
     }
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), dogClickedListener)
     }
 
     class DogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SimpleDateFormat")
-        fun bind(dog: Dog) {
+        fun bind(dog: Dog, listener: IOnDogClickedListener) {
             itemView.findViewById<TextView>(R.id.dog_name).text = dog.name
 
             itemView.findViewById<TextView>(R.id.dog_day).text = SimpleDateFormat(
@@ -41,6 +41,9 @@ class DogsAdapter : ListAdapter<Dog, DogsAdapter.DogViewHolder>(DogDiffCallback)
                 placeholder(android.R.drawable.progress_indeterminate_horizontal)
                 transformations(RoundedCornersTransformation(4f))
             }
+
+            // Set dog clicked listener
+            itemView.setOnClickListener { listener.onDogClicked(dog) }
         }
     }
 }

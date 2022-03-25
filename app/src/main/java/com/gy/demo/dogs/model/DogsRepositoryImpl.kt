@@ -31,4 +31,7 @@ class DogsRepositoryImpl @Inject constructor(
     }
 
     override fun getAllDogs() : Flow<List<Dog>> = dogsDao.getAllDogs()
+
+    override fun getDogById(id: Int): Flow<Dog> = dogsDao.getDogById(id)
+
 }

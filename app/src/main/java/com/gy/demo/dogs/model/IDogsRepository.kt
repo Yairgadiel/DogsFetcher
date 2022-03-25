@@ -17,4 +17,9 @@ interface IDogsRepository {
      * Method retrieving all app's dogs
      */
     fun getAllDogs() : Flow<List<Dog>>
+
+    /**
+     * Method retrieving a dog given its id
+     */
+    fun getDogById(id: Int) : Flow<Dog>
 }
